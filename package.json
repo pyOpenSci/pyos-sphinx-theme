@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "sass src/sphinx_2i2c_theme/assets/styles/sphinx-2i2c-theme.scss src/sphinx_2i2c_theme/theme/sphinx-2i2c-theme/static/styles/sphinx-2i2c-theme.css"
+  },
+  "dependencies": {
+    "sass": "^1.43.4"
+  }
+}

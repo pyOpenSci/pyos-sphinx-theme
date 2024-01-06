@@ -1,0 +1,54 @@
+[build-system]
+requires = ["sphinx-theme-builder >= 0.2.0a7"]
+build-backend = "sphinx_theme_builder"
+
+[tool.sphinx-theme-builder]
+node-version = "16.13.0"
+
+[project]
+name = "sphinx-2i2c-theme"
+description = "2i2c's Documentation Theme."
+dynamic = ["version"]
+readme = "README.md"
+urls = { Organization = "https://2i2c.org" }
+
+requires-python = ">=3.8"
+dependencies = [
+  "pydata-sphinx-theme",
+  "myst_nb",
+  "sphinxext-opengraph",
+  "sphinx-copybutton",
+  "sphinx-togglebutton",
+  "sphinxext-opengraph>=0.8.0",
+  "sphinx_design",
+  "sphinx_sitemap",
+]
+
+license = { file = "LICENSE"}
+authors = [
+    {name = "2i2c", email = "hello@2i2c.org"},
+]
+classifiers = [
+  "Framework :: Sphinx",
+  "Framework :: Sphinx :: Theme",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Web Environment",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Operating System :: OS Independent",
+  "Topic :: Documentation",
+  "Topic :: Software Development :: Documentation",
+]
+
+[project.optional-dependencies]
+dev = [
+  'sphinx-theme-builder[cli] >= 0.2.0a7',
+]
+
+[project.entry-points]
+"sphinx.html_themes" = {sphinx_2i2c_theme = "sphinx_2i2c_theme"}

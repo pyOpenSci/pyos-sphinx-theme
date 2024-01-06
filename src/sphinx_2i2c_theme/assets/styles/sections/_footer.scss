@@ -1,0 +1,20 @@
+// The icon links to the right
+.bd-footer .footer-items__end {
+  justify-content: start;
+
+  .navbar-icon-links {
+    flex-direction: row-reverse;
+  }
+}
+
+// The 2i2c-wide footer links
+ul.footer-links {
+  padding-left: 0;
+  list-style: none;
+
+  button {
+    color: var(--pst-color-link);
+    padding-left: 0;
+  }
+}
+

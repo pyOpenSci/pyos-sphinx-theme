@@ -1,0 +1,17 @@
+.support-button-2i2c {
+  button {
+    font-size: 1.1em;
+    font-weight: bold;
+    border: 1px var(--pst-color-primary) solid;
+    color: var(--pst-color-primary);
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    
+    transition: background-color 0.2s;
+    &:hover {
+      color: var(--pst-color-primary);
+      border-color: var(--pst-color-primary);
+      background-color: var(--pst-color-on-surface);
+    }
+  }
+}
