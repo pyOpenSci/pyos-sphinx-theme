@@ -1,0 +1,12 @@
+// Load the book theme because we re-use most of its CSS
+// Book theme is in `styles/`, as is this theme's CSS
+@import "sphinx-book-theme.css";
+
+// Load theme-specific SCSS
+@import "abstract/variables";
+@import "base/typography";
+@import "components/logo";
+@import "components/support-button";
+@import "sections/footer";
+@import "sections/header";
+@import "sections/sidebar-primary";
