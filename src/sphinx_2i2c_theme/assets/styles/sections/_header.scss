@@ -1,0 +1,37 @@
+/**
+ * Navigation bar across all 2i2c websites at the top.
+ */
+.navbar-nav {
+  column-gap: .5rem;
+  .dropdown-menu .dropdown-item {
+    padding-left: 0;
+
+    i {
+      padding-left: .5rem;
+    }
+  }
+
+  a button {
+    color: var(--pst-color-text-muted);
+  }
+
+  .nav-link {
+    button {
+      padding-left: .25rem;
+      padding-right: .25rem;
+    }
+
+    &.nav-external:after {
+      margin-left: 0;
+    }
+  }
+}
+
+// Standardize icon link size
+.navbar-icon-links {
+  gap: .75rem;
+
+  i {
+    font-size: 1.25rem !important;
+  }
+}

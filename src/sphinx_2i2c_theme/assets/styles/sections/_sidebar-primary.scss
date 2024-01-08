@@ -1,0 +1,37 @@
+.bd-sidebar-primary {
+  padding-top: .5rem;
+  gap: .5rem;
+
+  // Styling for our logo
+  p.logo__title {
+    // The logo title should align to the left to be flush with logo
+    align-self: start;
+    // Style should be the same as the header font
+    font-family: "Work Sans";
+    font-size: 1.5em;
+    color: var(--pst-color-primary);
+    font-weight: 600;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.75rem;
+  }
+
+  // Mobile behavior for the header links
+  .sidebar-header-items .nav-item button.btn {
+    // So they're flush with the title
+    padding: .1rem 0;
+  }
+
+  // Add back the border to the top since we have header items
+  @media (max-width: $breakpoint-md) {
+    .sidebar-primary-items__start {
+      border-top: 1px solid var(--pst-color-border);
+    }
+  }
+}
+
+// Both sidebars (if the secondary sidebar gets many more rules, create its own SCSS file)
+.bd-sidebar-primary, .bd-sidebar-secondary {
+  // Stick to the top
+  top: 0;
+}

@@ -1,0 +1,67 @@
+/* Overriding Book Theme colors to standardize for 2i2c */
+:root[data-theme=light], :root[data-theme=dark] {
+  --pst-color-primary: #703c87;
+  --pst-color-secondary: #8045e5;
+  --pst-color-navbar-link-active: var(--pst-color-primary);
+  --pst-color-sidebar-link-active: var(--pst-color-primary);
+  --pst-color-link: var(--pst-color-primary);
+  --logo-bold: 800;
+/* Fonts */ 
+  --pst-font-size-base: none;
+  --pst-font-family-heading: 'Poppins', sans-serif;
+  --pst-font-family-base: 'Poppins', sans-serif;
+  --pyos-font-family-h1: 'Itim', serif;
+}
+
+/* Dark mode special-cases (usually for accessibility) */
+:root[data-theme=dark] {
+  --pst-color-primary: #5077FC;
+}
+
+// Copied from sphinx-book-theme
+// Breakpoints from Bootstrap: https://getbootstrap.com/docs/5.0/layout/breakpoints/
+$breakpoint-xxl: 1200px;
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+
+// Colors
+$grey--light: rgba(0,0,0,.1);
+
+
+/* PyOS-specific vars :) */
+:root {
+  --pyos-color-primary: #703c87;
+  --pyos-color-secondary: #8045e5;
+  --pyos-color-secondary-highlight: #591bc2;
+  --pyos-color-tertiary: #A66C98;
+  --pyos-color-dark: #542568;
+  --pyos-color-light: #DAABCF;
+
+  /* Darkmode Adjustments*/
+  --pyos-dm-color-primary: #C483E0;
+
+  /* Fonts (overrides base theme) */
+  --pst-font-family-heading: 'Poppins', sans-serif;
+  --pst-font-family-base: 'Poppins', sans-serif;
+  --pyos-font-family-h1: 'Itim', serif;
+
+}
+
+html[data-theme=dark] {
+  --pst-color-primary: var(--pyos-dm-color-primary);
+  --pst-color-link: var(--pyos-color-light);
+  --pst-color-link-hover: var(--pyos-dm-color-primary);
+  --pyos-h1-color: var(--pyos-color-light);
+}
+
+
+
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-family: var(--pyos-font-family-h1) !important;
+  color: var(--pyos-h1-color);
+}
