@@ -1,7 +1,6 @@
 """A lightweight theme for pyOpenSci."""
-import os
 from pathlib import Path
-from sphinx_book_theme import hash_assets_for_files
+# from sphinx_book_theme import hash_assets_for_files
 from sphinx.util import logging
 from pydata_sphinx_theme.utils import get_theme_options_dict, config_provided_by_user
 from .video import Video
@@ -15,8 +14,8 @@ THEME_PATH = (Path(__file__).parent / "theme" / "sphinx-2i2c-theme").resolve()
 
 def update_config(app):
     # These are the theme options that will be used in the build
-    theme_options = get_theme_options_dict(app)
-
+    theme_options = app.config.html_theme_options
+    
     # If no URL is set, don't generate social previews
     if not config_provided_by_user(app, "ogp_site_url"):
         app.config.ogp_site_url = "2i2c.org"
@@ -65,33 +64,33 @@ def update_config(app):
 
 def hash_html_assets(app, pagename, templatename, context, doctree):
     assets = ["styles/sphinx-2i2c-theme.css"]
-    hash_assets_for_files(assets, THEME_PATH / "static", context, app)
+    # hash_assets_for_files(assets, THEME_PATH / "static", context, app)
 
 
-def activate_extensions(app, extensions):
-    """Activate extensions bundled with this theme.
+# def activate_extensions(app, extensions):
+#     """Activate extensions bundled with this theme.
     
-    This also manually triggers the `config-inited` build step to account for
-    added extensions that hook into this event.
-    """
+#     This also manually triggers the `config-inited` build step to account for
+#     added extensions that hook into this event.
+#     """
 
-    # Remove all of the `config-inited` event listeners because they've already triggered
-    # We'll then re-trigger this event after adding extensions so that *only* their event hooks trigger
-    old_listeners = app.events.listeners["config-inited"]
-    app.events.listeners["config-inited"] = []
+#     # Remove all of the `config-inited` event listeners because they've already triggered
+#     # We'll then re-trigger this event after adding extensions so that *only* their event hooks trigger
+#     old_listeners = app.events.listeners["config-inited"]
+#     app.events.listeners["config-inited"] = []
 
-    # Activate a few extensions by default
-    for extension in extensions:
-        # If it's already been activated just skip it
-        if extension in app.config.extensions:
-            continue
-        app.setup_extension(extension)
+#     # Activate a few extensions by default
+#     for extension in extensions:
+#         # If it's already been activated just skip it
+#         if extension in app.config.extensions:
+#             continue
+#         app.setup_extension(extension)
 
-    # Emit the config-inited event so that the new extensions run their hooks
-    app.emit("config-inited", app.config)
+#     # Emit the config-inited event so that the new extensions run their hooks
+#     app.emit("config-inited", app.config)
 
-    # Finally join back the lists
-    app.events.listeners["config-inited"][:0] = old_listeners
+#     # Finally join back the lists
+#     app.events.listeners["config-inited"][:0] = old_listeners
 
 
 def setup(app):
@@ -110,13 +109,18 @@ def setup(app):
     # ref: https://developers.google.com/fonts/docs/css2
     app.add_css_file("https://fonts.gstatic.com", rel="preconnect")
     app.add_css_file("https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@400;700&family=Work+Sans:wght@400;700")
-    add_extensions = ["sphinx_copybutton", 
-                      "sphinx_togglebutton", 
-                      "sphinxext.opengraph", 
-                      "sphinx.ext.intersphinx", 
-                      "sphinx_design", 
-                      "sphinx_sitemap",]
-    activate_extensions(app, add_extensions)
+    # add_extensions = ["sphinx_copybutton", 
+    #                   "sphinx_togglebutton", 
+    #                   "sphinxext.opengraph", 
+    #                   "sphinx.ext.intersphinx", 
+    #                   "sphinx_design", 
+    #                   "sphinx_sitemap",]
+    # activate_extensions(app, add_extensions)
 
     # Video directive
-    app.add_directive("video", Video)
+    # app.add_directive("video", Video)
+    return {
+        "version": __version__,
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
+    }

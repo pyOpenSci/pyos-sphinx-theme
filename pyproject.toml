@@ -1,16 +1,18 @@
 [build-system]
-requires = ["sphinx-theme-builder >= 0.2.0a7"]
+requires = [
+  "sphinx-theme-builder @ https://github.com/pradyunsg/sphinx-theme-builder/archive/87214d0671c943992c05e3db01dca997e156e8d6.zip",
+]
 build-backend = "sphinx_theme_builder"
 
 [tool.sphinx-theme-builder]
-node-version = "16.13.0"
+node-version = "16.13.2"
+theme-name = "sphinx-2i2c-theme"
 
 [project]
 name = "sphinx-2i2c-theme"
 description = "2i2c's Documentation Theme."
 dynamic = ["version"]
-readme = "README.md"
-urls = { Organization = "https://2i2c.org" }
+
 
 requires-python = ">=3.9"
 dependencies = [
@@ -50,5 +52,5 @@ dev = [
   'sphinx-theme-builder[cli] >= 0.2.0a7',
 ]
 
-[project.entry-points]
-"sphinx.html_themes" = {sphinx_2i2c_theme = "sphinx_2i2c_theme"}
+[project.entry-points."sphinx.html_themes"]
+"sphinx_2i2c_theme" = "sphinx_2i2c_theme"
