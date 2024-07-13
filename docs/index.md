@@ -14,7 +14,7 @@ Other than this, the theme behaves the exact same as the [sphinx book theme](htt
 
 These have sections about using this theme
 
-```toctree
+```{toctree}
 :hidden:
 
 features
@@ -26,8 +26,8 @@ showcase
 ## Reference
 
 See the kitchen sink for some example pages.
-
+<!-- 
 ```{toctree}
 :maxdepth: 3
 reference/kitchen-sink/index
-```
+``` -->

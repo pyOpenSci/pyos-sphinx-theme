@@ -46,13 +46,13 @@ ogp_social_cards = {
 # html_static_path = ["_static"]
 
 
-html_theme_options = {
-    "path_to_docs": "docs",
-    "repository_url": "https://github.com/2i2c-org/sphinx-2i2c-theme",
-    "use_edit_page_button": True,
-    "use_issues_button": True,
-    "use_download_button": True,
-}
+# html_theme_options = {
+#     "path_to_docs": "docs",
+#     "repository_url": "https://github.com/2i2c-org/sphinx-2i2c-theme",
+#     "use_edit_page_button": True,
+#     "use_issues_button": True,
+#     "use_download_button": True,
+# }
 
 html_context = {
     "github_user": "pyopensci",

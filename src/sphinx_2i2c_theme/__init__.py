@@ -2,6 +2,7 @@
 from pathlib import Path
 # from sphinx_book_theme import hash_assets_for_files
 from sphinx.util import logging
+
 from pydata_sphinx_theme.utils import get_theme_options_dict, config_provided_by_user
 from .video import Video
 from .html2dirhtml import redirect_from_html_to_dirhtml
