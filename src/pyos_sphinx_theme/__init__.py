@@ -14,8 +14,11 @@ LOGGER = logging.getLogger(__name__)
 
 THIS_PATH = Path(__file__).parent.resolve()
 THEME_PATH = THIS_PATH / "theme" / "pyos_sphinx_theme"
-LOGO_LIGHT = str((THIS_PATH / "assets" / "images" / "logo-light-mode.png").absolute()).replace("\\", "/")
-LOGO_DARK = str((THIS_PATH / "assets" / "images" / "logo-dark-mode.png").absolute()).replace("\\", "/")
+LOGO_LIGHT = str((THEME_PATH / "static" / "images" / "logo-light-mode.png").absolute()).replace("\\", "/")
+LOGO_DARK = str((THEME_PATH / "static" / "images" / "logo-dark-mode.png").absolute()).replace("\\", "/")
+
+PYOPENSCI_LOGO_PACKAGE_GUIDE = str((THEME_PATH / "static" / "images" / "pyopensci-logo-package-guide.png").absolute()).replace("\\", "/")
+PYOPENSCI_PYTHON_PACKAGE_GUIDE = str((THEME_PATH / "static" / "images" /"pyopensci-python-package-guide.png").absolute()).replace("\\", "/")
 
 def update_config(app):
     # These are the theme options that will be used in the build
@@ -59,12 +62,18 @@ def update_config(app):
 
     # Social previews config
     social_cards = app.config.__dict__.get("ogp_social_cards", {})
+    
+    app.config.ogp_site_name = "pyOpenSci Python Package Guide"
+    app.config.ogp_social_cards = {
+        "line_color": "#6D597A",
+        "image": "_static/pyopensci-logo-package-guide.png",
+    }
 
     # If no html_logo is set then use a stock 2i2c logo
     if not config_provided_by_user(app, "html_logo") and not social_cards.get("image"):
-        path_static = Path(__file__).parent / "theme/pyos_sphinx_theme/static"
-        path_img = path_static / "images/logo.png"
-        social_cards["image"] = str(path_img)
+        line_color = "#6D597A"
+        social_cards["image"] = str(LOGO_LIGHT)
+        social_cards["line_color"] = line_color
 
     app.config.ogp_social_cards = social_cards
 
