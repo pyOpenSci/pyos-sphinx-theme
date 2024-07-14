@@ -7,7 +7,7 @@ This will download a local copy of NodeJS and build the theme's assets with the 
 
 ## Theme structure
 
-This theme follows the [`sphinx-theme-builder` filesystem layout](https://sphinx-theme-builder.readthedocs.io/en/latest/reference/filesystem-layout/).
+This theme follows the [`sphinx-theme-builder` filesystem layout](https://sphinx-theme-builder.readthedocs.io/en/latest/filesystem-layout/).
 
 ## clone the repository
 
