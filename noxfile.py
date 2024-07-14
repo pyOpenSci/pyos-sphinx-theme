@@ -19,7 +19,7 @@ nox.options.reuse_existing_virtualenvs = True
 
 # Sphinx output and source directories
 SOURCE_DIR = pathlib.Path("docs")
-BUILD_DIR = pathlib.Path(SOURCE_DIR, "_build")
+BUILD_DIR = pathlib.Path("_build")
 OUTPUT_DIR = pathlib.Path(BUILD_DIR, "html")
 
 nox.options.reuse_existing_virtualenvs = True
