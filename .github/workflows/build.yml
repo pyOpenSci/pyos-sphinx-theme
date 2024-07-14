@@ -47,13 +47,13 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: "./_build/html"
+          publish_dir: "./docs/_build/html"
 
       # Test for bad links and ensure alt tags for usability
       - name: Check HTML using htmlproofer
         uses: chabad360/htmlproofer@master
         with:
-          directory: ./_build/html
+          directory: ./docs/_build/html
           arguments: |
             --ignore-files "/.+\/_static\/.+/"
             --ignore-status-codes "0, 200, 301, 401, 403, 503"
@@ -65,4 +65,4 @@ jobs:
         with:
           name: book-html
           path: |
-            ./_build/html
+            ./docs/_build/html
