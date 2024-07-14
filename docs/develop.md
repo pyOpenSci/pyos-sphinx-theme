@@ -9,6 +9,15 @@ This will download a local copy of NodeJS and build the theme's assets with the 
 
 This theme follows the [`sphinx-theme-builder` filesystem layout](https://sphinx-theme-builder.readthedocs.io/en/latest/reference/filesystem-layout/).
 
+## clone the repository
+
+To develop this theme, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/pyOpenSci/pyos-sphinx-theme.git
+cd pyos-sphinx-theme
+pip install -e .[dev]
+```
 
 ## Build the theme locally
 

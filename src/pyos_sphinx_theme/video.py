@@ -34,8 +34,7 @@ class Video(Directive):
             iframe = IFRAME_TEMPLATE.format(width=width, height=height, src=f"https://www.youtube.com/embed/{uid}")
         else:
             raise ValueError(f"Unidentified video link: {link}")
-        
+
         # Use a raw pass-through node
         para = nodes.raw("", iframe, format="html")
         return [para]
- 

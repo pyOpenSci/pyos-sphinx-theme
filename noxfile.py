@@ -10,9 +10,7 @@ To re-install dependencies:
     nox -s docs -- -r
 """
 import nox
-import os
 import pathlib
-import shutil
 import nox
 
 nox.options.reuse_existing_virtualenvs = True
@@ -48,7 +46,7 @@ def docs(session):
     """Build the packaging guide."""
     session.install("-e", ".")
     session.run(SPHINX_BUILD, *BUILD_PARAMETERS, SOURCE_DIR, OUTPUT_DIR, *session.posargs)
-    
+
 
 @nox.session(name="docs-live")
 def docs_live(session):
@@ -73,7 +71,7 @@ def docs_live(session):
     # for folder in AUTOBUILD_INCLUDE:
     #     cmd.extend(["--watch", folder])
     session.run(*cmd)
-    
+
 @nox.session(name="docs-test")
 def docs_test(session):
     """

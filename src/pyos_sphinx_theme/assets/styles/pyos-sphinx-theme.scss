@@ -268,3 +268,9 @@ ugly scrollbar to show all the time
   background-color: #185355; /* Darker shade of #216A6B */
   color: #fff;
 }
+
+@media (min-width: 960px) {
+  .col-lg-3 {
+    width: fit-content;
+  }
+}
