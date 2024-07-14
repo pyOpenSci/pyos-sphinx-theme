@@ -6,7 +6,7 @@ build-backend = "sphinx_theme_builder"
 
 [tool.sphinx-theme-builder]
 node-version = "16.13.2"
-theme-name = "pyos-sphinx-theme"
+theme-name = "pyos_sphinx_theme"
 
 [project]
 name = "pyos-sphinx-theme"

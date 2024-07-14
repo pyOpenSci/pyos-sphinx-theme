@@ -11,11 +11,11 @@ __version__ = "0.0.1"
 LOGGER = logging.getLogger(__name__)
 
 THIS_PATH = Path(__file__).parent.resolve()
-THEME_PATH = (THIS_PATH / "theme" / "pyos-sphinx-theme").resolve()
-LOGO_LIGHT = THIS_PATH / "theme" / "pyos-sphinx-theme" / "static" / "images" / "logo-light-mode.png"
+THEME_PATH = (THIS_PATH / "theme" / "pyos_sphinx_theme").resolve()
+LOGO_LIGHT = THIS_PATH / "theme" / "pyos_sphinx_theme" / "static" / "images" / "logo-light-mode.png"
 # change windows path to linux path
 LOGO_LIGHT = str(LOGO_LIGHT).replace("\\", "/")
-LOGO_DARK = THIS_PATH / "theme" / "pyos-sphinx-theme" / "static" / "images" / "logo-dark-mode.png"
+LOGO_DARK = THIS_PATH / "theme" / "pyos_sphinx_theme" / "static" / "images" / "logo-dark-mode.png"
 LOGO_DARK = str(LOGO_DARK).replace("\\", "/")
 
 STYLE_PATH = THIS_PATH / "assets" / "styles" / "pyos-sphinx-theme.css"
@@ -75,7 +75,7 @@ def update_config(app):
 
     # If no html_logo is set then use a stock 2i2c logo
     if not config_provided_by_user(app, "html_logo") and not social_cards.get("image"):
-        path_static = Path(__file__).parent / "theme/pyos-sphinx-theme/static"
+        path_static = Path(__file__).parent / "theme/pyos_sphinx_theme/static"
         path_img = path_static / "images/logo.png"
         social_cards["image"] = str(path_img)
 
@@ -113,7 +113,7 @@ def hash_html_assets(app, pagename, templatename, context, doctree):
 
 
 def setup(app):
-    app.add_html_theme("pyos-sphinx-theme", THEME_PATH)
+    app.add_html_theme("pyos_sphinx_theme", THEME_PATH)
     app.config.html_favicon = "https://2i2c.org/media/icon.png"
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", hash_html_assets)
@@ -122,7 +122,7 @@ def setup(app):
 
     # Add our folder for templates
     here = Path(__file__).parent.resolve()
-    theme_path = here / "theme" / "pyos-sphinx-theme"
+    theme_path = here / "theme" / "pyos_sphinx_theme"
     app.config.templates_path.append(str(theme_path / "components"))
 
     # Use the Google Fonts CDN to quickly load our fonts
