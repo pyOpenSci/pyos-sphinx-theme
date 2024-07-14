@@ -12,6 +12,7 @@ theme-name = "pyos_sphinx_theme"
 name = "pyos-sphinx-theme"
 description = "PyOS Documentation Theme."
 dynamic = ["version"]
+readme = "README.md"
 
 
 requires-python = ">=3.9"
