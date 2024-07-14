@@ -13,15 +13,9 @@ __version__ = "0.0.1dev0"
 LOGGER = logging.getLogger(__name__)
 
 THIS_PATH = Path(__file__).parent.resolve()
-THEME_PATH = (THIS_PATH / "theme" / "pyos_sphinx_theme").resolve()
-LOGO_LIGHT = THIS_PATH / "assets" / "images" / "logo-light-mode.png"
-# change windows path to linux path
-LOGO_LIGHT = str(LOGO_LIGHT).replace("\\", "/")
-LOGO_DARK = THIS_PATH / "assets" / "images" / "logo-dark-mode.png"
-LOGO_DARK = str(LOGO_DARK).replace("\\", "/")
-PYOS_PACKAGE_LOGO = THIS_PATH / "assets" / "images" / "pyopensci-logo-package-guide.png"
-STYLE_PATH = THIS_PATH / "assets" / "styles" / "pyos-sphinx-theme.css"
-
+THEME_PATH = THIS_PATH / "theme" / "pyos_sphinx_theme"
+LOGO_LIGHT = str((THIS_PATH / "assets" / "images" / "logo-light-mode.png").absolute()).replace("\\", "/")
+LOGO_DARK = str((THIS_PATH / "assets" / "images" / "logo-dark-mode.png").absolute()).replace("\\", "/")
 
 def update_config(app):
     # These are the theme options that will be used in the build
@@ -111,12 +105,6 @@ def setup(app):
 
     app.add_css_file("https://fonts.gstatic.com", rel="preconnect")
     app.add_css_file("https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@400;700&family=Work+Sans:wght@400;700")
-    # add_extensions = ["sphinx_copybutton",
-    #                   "sphinx_togglebutton",
-    #                   "sphinxext.opengraph",
-    #                   "sphinx.ext.intersphinx",
-    #                   "sphinx_design",
-    #                   "sphinx_sitemap",]
 #     activate_extensions(app, add_extensions)
 
     # Video directive
