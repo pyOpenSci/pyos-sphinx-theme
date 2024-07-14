@@ -6,11 +6,11 @@ build-backend = "sphinx_theme_builder"
 
 [tool.sphinx-theme-builder]
 node-version = "16.13.2"
-theme-name = "sphinx-2i2c-theme"
+theme-name = "pyos-sphinx-theme"
 
 [project]
-name = "sphinx-2i2c-theme"
-description = "2i2c's Documentation Theme."
+name = "pyos-sphinx-theme"
+description = "PyOS Documentation Theme."
 dynamic = ["version"]
 
 
@@ -29,7 +29,7 @@ dependencies = [
 
 license = { file = "LICENSE"}
 authors = [
-    {name = "2i2c", email = "hello@2i2c.org"},
+    {name = "pyos", email = "hello@2i2c.org"},
 ]
 classifiers = [
   "Framework :: Sphinx",
@@ -52,5 +52,10 @@ dev = [
   'sphinx-theme-builder[cli] >= 0.2.0a7',
 ]
 
+docs = [
+  "myst-parser",
+  "IPython",
+]
+
 [project.entry-points."sphinx.html_themes"]
-"sphinx_2i2c_theme" = "sphinx_2i2c_theme"
+"pyos_sphinx_theme" = "pyos_sphinx_theme"

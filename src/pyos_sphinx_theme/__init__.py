@@ -10,61 +10,79 @@ from .html2dirhtml import redirect_from_html_to_dirhtml
 __version__ = "0.0.1"
 LOGGER = logging.getLogger(__name__)
 
-THEME_PATH = (Path(__file__).parent / "theme" / "sphinx-2i2c-theme").resolve()
+THIS_PATH = Path(__file__).parent.resolve()
+THEME_PATH = (THIS_PATH / "theme" / "pyos-sphinx-theme").resolve()
+LOGO_LIGHT = THIS_PATH / "theme" / "pyos-sphinx-theme" / "static" / "images" / "logo-light-mode.png"
+# change windows path to linux path
+LOGO_LIGHT = str(LOGO_LIGHT).replace("\\", "/")
+LOGO_DARK = THIS_PATH / "theme" / "pyos-sphinx-theme" / "static" / "images" / "logo-dark-mode.png"
+LOGO_DARK = str(LOGO_DARK).replace("\\", "/")
+
+STYLE_PATH = THIS_PATH / "assets" / "styles" / "pyos-sphinx-theme.css"
 
 
 def update_config(app):
     # These are the theme options that will be used in the build
     theme_options = app.config.html_theme_options
     
+    if "ogp_site_url" not in app.config:
+        app.config.ogp_site_url = "https://2i2c.org"
+        
+    
     # If no URL is set, don't generate social previews
     if not config_provided_by_user(app, "ogp_site_url"):
         app.config.ogp_site_url = "2i2c.org"
+        
+    # add icons to the navbar
+    if "icon_links" not in theme_options:
+            
+        theme_options["icon_links"] =[
+            {
+                "name": "Twitter",
+                "url": "https://twitter.com/2i2c_org",
+                "icon": "fa-brands fa-twitter",
+            },
+            {
+                "name": "Mastodon",
+                "url": "https://hachyderm.io/@2i2c_org",
+                "icon": "fa-brands fa-mastodon",
+                # This allows us to verify this page in Mastodon
+                "attributes": {
+                   "rel" : "me",
+                },
+            },
+            {
+                "name": "Contact",
+                "url": "https://2i2c.org/#contact",
+                "icon": "fas fa-envelope",
+            },
+            {
+                "name": "Blog",
+                "url": "https://2i2c.org/blog",
+                "icon": "fas fa-newspaper",
+            },
+        ]
+        
+    if not "logo" in theme_options:
+        theme_options["logo"] = {
+                "image_dark": LOGO_DARK,
+                "image_light": LOGO_LIGHT,
+            }
+    
 
     # Social previews config
     social_cards = app.config.__dict__.get("ogp_social_cards", {})
 
     # If no html_logo is set then use a stock 2i2c logo
     if not config_provided_by_user(app, "html_logo") and not social_cards.get("image"):
-        path_static = Path(__file__).parent / "theme/sphinx-2i2c-theme/static"
+        path_static = Path(__file__).parent / "theme/pyos-sphinx-theme/static"
         path_img = path_static / "images/logo.png"
         social_cards["image"] = str(path_img)
 
     app.config.ogp_social_cards = social_cards
 
-    # Add icon links to config
-    icon_links = [
-        {
-            "name": "Twitter",
-            "url": "https://twitter.com/2i2c_org",
-            "icon": "fa-brands fa-twitter",
-        },
-        {
-            "name": "Mastodon",
-            "url": "https://hachyderm.io/@2i2c_org",
-            "icon": "fa-brands fa-mastodon",
-            # This allows us to verify this page in Mastodon
-            "attributes": {
-               "rel" : "me",
-            },
-        },
-        {
-            "name": "Contact",
-            "url": "https://2i2c.org/#contact",
-            "icon": "fas fa-envelope",
-        },
-        {
-            "name": "Blog",
-            "url": "https://2i2c.org/blog",
-            "icon": "fas fa-newspaper",
-        },
-    ]
-    if "icon-links" not in theme_options:
-        theme_options["icon_links"] = icon_links
-
-
 def hash_html_assets(app, pagename, templatename, context, doctree):
-    assets = ["styles/sphinx-2i2c-theme.css"]
+    assets = ["styles/pyos-sphinx-theme.css"]
     # hash_assets_for_files(assets, THEME_PATH / "static", context, app)
 
 
@@ -95,15 +113,16 @@ def hash_html_assets(app, pagename, templatename, context, doctree):
 
 
 def setup(app):
-    app.add_html_theme("sphinx_2i2c_theme", THEME_PATH)
+    app.add_html_theme("pyos-sphinx-theme", THEME_PATH)
     app.config.html_favicon = "https://2i2c.org/media/icon.png"
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", hash_html_assets)
     app.connect("html-page-context", redirect_from_html_to_dirhtml)
+    app.add_css_file("styles/pyos-sphinx-theme.css")
 
     # Add our folder for templates
     here = Path(__file__).parent.resolve()
-    theme_path = here / "theme" / "sphinx-2i2c-theme"
+    theme_path = here / "theme" / "pyos-sphinx-theme"
     app.config.templates_path.append(str(theme_path / "components"))
 
     # Use the Google Fonts CDN to quickly load our fonts

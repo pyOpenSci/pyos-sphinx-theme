@@ -27,7 +27,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_2i2c_theme"
+html_theme = "pyos_sphinx_theme"
 html_title = "pyOpenSci Sphinx Theme"
 html_copy_source = True
 html_sourcelink_suffix = ""
