@@ -16,7 +16,7 @@ readme = "README.md"
 
 requires-python = ">=3.9"
 dependencies = [
-  "pydata-sphinx-theme",
+  "pydata-sphinx-theme==0.15.2",
   "sphinx",
   "myst_nb",
   "sphinxext-opengraph",

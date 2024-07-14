@@ -9,8 +9,6 @@ from pydata_sphinx_theme.utils import config_provided_by_user
 from .video import Video # activate this line to enable the video directive
 from .html2dirhtml import redirect_from_html_to_dirhtml # nactivate this line to enable the html2dirhtml redirection
 
-
-
 __version__ = "0.0.1dev0"
 LOGGER = logging.getLogger(__name__)
 
