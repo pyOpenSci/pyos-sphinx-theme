@@ -274,3 +274,10 @@ ugly scrollbar to show all the time
     width: fit-content;
   }
 }
+
+.bd-header .navbar-nav li a.nav-link:hover {
+  text-decoration: none;
+  text-decoration-thickness: none;
+  border-bottom: max(3px, .1875rem, .12em) solid var(--pst-color-link-hover);
+  text-underline-offset: none;
+}
