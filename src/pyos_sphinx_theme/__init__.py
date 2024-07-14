@@ -3,7 +3,7 @@ from pathlib import Path
 # from sphinx_book_theme import hash_assets_for_files
 from sphinx.util import logging
 
-from pydata_sphinx_theme.utils import get_theme_options_dict, config_provided_by_user
+from pydata_sphinx_theme.utils import config_provided_by_user
 from .video import Video
 from .html2dirhtml import redirect_from_html_to_dirhtml
 
@@ -17,7 +17,7 @@ LOGO_LIGHT = THIS_PATH / "assets" / "images" / "logo-light-mode.png"
 LOGO_LIGHT = str(LOGO_LIGHT).replace("\\", "/")
 LOGO_DARK = THIS_PATH / "assets" / "images" / "logo-dark-mode.png"
 LOGO_DARK = str(LOGO_DARK).replace("\\", "/")
-
+PYOS_PACKAGE_LOGO = THIS_PATH / "assets" / "images" / "pyopensci-logo-package-guide.png"
 STYLE_PATH = THIS_PATH / "assets" / "styles" / "pyos-sphinx-theme.css"
 
 
@@ -114,19 +114,13 @@ def hash_html_assets(app, pagename, templatename, context, doctree):
 
 def setup(app):
     app.add_html_theme("pyos_sphinx_theme", THEME_PATH)
-    app.config.html_favicon = "https://2i2c.org/media/icon.png"
+    app.config.html_favicon = "https://www.pyopensci.org/images/favicon.ico"
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", hash_html_assets)
     app.connect("html-page-context", redirect_from_html_to_dirhtml)
-    app.add_css_file("styles/pyos-sphinx-theme.css")
+    app.add_css_file("static/styles/pyos-sphinx-theme.css")
+    app.add_js_file("static/scripts/matomo.js")
 
-    # Add our folder for templates
-    here = Path(__file__).parent.resolve()
-    theme_path = here / "theme" / "pyos_sphinx_theme"
-    app.config.templates_path.append(str(theme_path / "components"))
-
-    # Use the Google Fonts CDN to quickly load our fonts
-    # ref: https://developers.google.com/fonts/docs/css2
     app.add_css_file("https://fonts.gstatic.com", rel="preconnect")
     app.add_css_file("https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@400;700&family=Work+Sans:wght@400;700")
     # add_extensions = ["sphinx_copybutton", 
