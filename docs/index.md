@@ -19,12 +19,3 @@ use
 develop
 showcase
 ```
-
-## Reference
-
-See the kitchen sink for some example pages.
-<!--
-```{toctree}
-:maxdepth: 3
-reference/kitchen-sink/index
-``` -->
