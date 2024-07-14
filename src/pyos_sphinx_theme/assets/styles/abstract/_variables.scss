@@ -1,0 +1,54 @@
+:root {
+  --pyos-color-primary: #703c87;
+  --pyos-color-secondary: #8045e5;
+  --pyos-color-secondary-highlight: #591bc2;
+  --pyos-color-tertiary: #a66c98;
+  --pyos-color-dark: #542568;
+  --pyos-color-light: #daabcf;
+
+  /* Darkmode Adjustments*/
+  --pyos-dm-color-primary: #c483e0;
+
+  /* Fonts (overrides base theme) */
+  --pst-font-family-heading: "Poppins", sans-serif;
+  --pst-font-family-base: "Poppins", sans-serif;
+  --pyos-font-family-h1: "Itim", serif;
+}
+
+html[data-theme="light"] {
+  --pst-color-primary: var(--pyos-color-primary);
+  --pst-color-primary-text: #fff;
+  --pst-color-primary-highlight: #053f49;
+  --sd-color-primary: var(--pst-color-primary);
+  --sd-color-primary-text: var(--pst-color-primary-text);
+  --sd-color-primary-highlight: var(--pst-color-primary-highlight);
+  --sd-color-primary-bg: #d0ecf1;
+  --sd-color-primary-bg-text: #14181e;
+  --pst-color-secondary: var(--pyos-color-secondary);
+  --pst-color-secondary-text: #fff;
+  --pst-color-secondary-highlight: var(--pyos-color-secondary-highlight);
+  --sd-color-secondary: var(--pst-color-secondary);
+  --sd-color-secondary-text: var(--pst-color-secondary-text);
+  --sd-color-secondary-highlight: var(--pst-color-secondary-highlight);
+  --sd-color-secondary-bg: #e0c7ff;
+  --sd-color-secondary-bg-text: #14181e;
+  --pst-color-success: #00843f;
+  --pst-color-success-text: #fff;
+  --pst-color-success-highlight: #00381a;
+  --sd-color-success: var(--pst-color-success);
+  --sd-color-success-text: var(--pst-color-success-text);
+  --sd-color-success-highlight: var(--pst-color-success-highlight);
+  --sd-color-success-bg: #d6ece1;
+  --sd-color-success-bg-text: #14181e;
+  --pst-color-info: #a66c98; /* general admonition */
+  --pst-color-info-bg: #eac8e2;
+  --pst-heading-color: var(--pyos-color-dark);
+  --pyos-h1-color: var(--pyos-color-dark);
+}
+
+html[data-theme="dark"] {
+  --pst-color-primary: var(--pyos-dm-color-primary);
+  --pst-color-link: var(--pyos-color-light);
+  --pst-color-link-hover: var(--pyos-dm-color-primary);
+  --pyos-h1-color: var(--pyos-color-light);
+}

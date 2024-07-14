@@ -1,20 +1,24 @@
 [build-system]
-requires = ["sphinx-theme-builder >= 0.2.0a7"]
+requires = [
+  "sphinx-theme-builder @ https://github.com/pradyunsg/sphinx-theme-builder/archive/87214d0671c943992c05e3db01dca997e156e8d6.zip",
+]
 build-backend = "sphinx_theme_builder"
 
 [tool.sphinx-theme-builder]
-node-version = "16.13.0"
+node-version = "16.13.2"
+theme-name = "pyos_sphinx_theme"
 
 [project]
-name = "sphinx-2i2c-theme"
-description = "2i2c's Documentation Theme."
+name = "pyos-sphinx-theme"
+description = "PyOS Documentation Theme."
 dynamic = ["version"]
 readme = "README.md"
-urls = { Organization = "https://2i2c.org" }
 
-requires-python = ">=3.8"
+
+requires-python = ">=3.9"
 dependencies = [
   "pydata-sphinx-theme",
+  "sphinx",
   "myst_nb",
   "sphinxext-opengraph",
   "sphinx-copybutton",
@@ -26,7 +30,7 @@ dependencies = [
 
 license = { file = "LICENSE"}
 authors = [
-    {name = "2i2c", email = "hello@2i2c.org"},
+    {name = "pyos", email = "hello@2i2c.org"},
 ]
 classifiers = [
   "Framework :: Sphinx",
@@ -35,11 +39,10 @@ classifiers = [
   "Environment :: Web Environment",
   "Intended Audience :: Developers",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.5",
-  "Programming Language :: Python :: 3.6",
-  "Programming Language :: Python :: 3.7",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "Operating System :: OS Independent",
   "Topic :: Documentation",
   "Topic :: Software Development :: Documentation",
@@ -50,5 +53,10 @@ dev = [
   'sphinx-theme-builder[cli] >= 0.2.0a7',
 ]
 
-[project.entry-points]
-"sphinx.html_themes" = {sphinx_2i2c_theme = "sphinx_2i2c_theme"}
+docs = [
+  "myst-parser",
+  "IPython",
+]
+
+[project.entry-points."sphinx.html_themes"]
+"pyos_sphinx_theme" = "pyos_sphinx_theme"

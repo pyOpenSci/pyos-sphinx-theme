@@ -13,7 +13,7 @@ include MANIFEST.in
 include README.md
 include web-compile-config.yml
 
-include sphinx_2i2c_theme/theme.conf
-recursive-include sphinx_2i2c_theme *.html
-recursive-include sphinx_2i2c_theme/static *.js *.png *.css *.svg
+include pyos_sphinx_theme/theme.conf
+recursive-include pyos_sphinx_theme *.html
+recursive-include pyos_sphinx_theme/static *.js *.png *.css *.svg
 exclude jsons
