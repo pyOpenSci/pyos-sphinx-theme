@@ -12,10 +12,10 @@ LOGGER = logging.getLogger(__name__)
 
 THIS_PATH = Path(__file__).parent.resolve()
 THEME_PATH = (THIS_PATH / "theme" / "pyos_sphinx_theme").resolve()
-LOGO_LIGHT = THIS_PATH / "theme" / "pyos_sphinx_theme" / "static" / "images" / "logo-light-mode.png"
+LOGO_LIGHT = THIS_PATH / "assets" / "images" / "logo-light-mode.png"
 # change windows path to linux path
 LOGO_LIGHT = str(LOGO_LIGHT).replace("\\", "/")
-LOGO_DARK = THIS_PATH / "theme" / "pyos_sphinx_theme" / "static" / "images" / "logo-dark-mode.png"
+LOGO_DARK = THIS_PATH / "assets" / "images" / "logo-dark-mode.png"
 LOGO_DARK = str(LOGO_DARK).replace("\\", "/")
 
 STYLE_PATH = THIS_PATH / "assets" / "styles" / "pyos-sphinx-theme.css"
