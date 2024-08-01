@@ -1,6 +1,5 @@
-// Load the book theme because we re-use most of its CSS
-// Book theme is in `styles/`, as is this theme's CSS
-@import "sphinx-book-theme.css";
+
+@import "pydata_sphinx_theme.css";
 
 // Load theme-specific SCSS
 @import "abstract/variables";
@@ -14,7 +13,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/poppins-v20-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("fonts/poppins-v20-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* poppins-italic - latin */
@@ -23,7 +22,7 @@
   font-family: "Poppins";
   font-style: italic;
   font-weight: 400;
-  src: url("./fonts/poppins-v20-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("fonts/poppins-v20-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* poppins-700 - latin */
@@ -32,7 +31,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  src: url("./fonts/poppins-v20-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("fonts/poppins-v20-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* poppins-700italic - latin */
@@ -41,7 +40,7 @@
   font-family: "Poppins";
   font-style: italic;
   font-weight: 700;
-  src: url("./fonts/poppins-v20-latin-700italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("fonts/poppins-v20-latin-700italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* itim-regular - latin */
@@ -50,7 +49,7 @@
   font-family: "Itim";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/itim-v14-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("fonts/itim-v14-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* poppins-500 - latin */
@@ -59,7 +58,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  src: url("./fonts/poppins-v20-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("fonts/poppins-v20-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* poppins-600 - latin */
 @font-face {
@@ -67,7 +66,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  src: url("./fonts/poppins-v20-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("fonts/poppins-v20-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 .sd-card-title {
@@ -267,4 +266,17 @@ ugly scrollbar to show all the time
 .lesson-div:nth-child(7) {
   background-color: #185355; /* Darker shade of #216A6B */
   color: #fff;
+}
+
+@media (min-width: 960px) {
+  .col-lg-3 {
+    width: fit-content;
+  }
+}
+
+.bd-header .navbar-nav li a.nav-link:hover {
+  text-decoration: none;
+  text-decoration-thickness: none;
+  border-bottom: max(3px, .1875rem, .12em) solid var(--pst-color-link-hover);
+  text-underline-offset: none;
 }

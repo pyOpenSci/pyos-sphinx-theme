@@ -30,9 +30,10 @@ html_title = "pyOpenSci Sphinx Theme"
 html_copy_source = True
 html_sourcelink_suffix = ""
 
+html_static_path = ["_static"]
 
 html_theme_options = {
-    "repository_url": "https://github.com/pyOpenSci/pyos-sphinx-theme",
+    "github_url": "https://github.com/pyOpenSci/pyos-sphinx-theme",
     "use_edit_page_button": True,
 }
 
