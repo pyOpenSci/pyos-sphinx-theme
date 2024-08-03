@@ -1,0 +1,48 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build-test:
+    uses: ./.github/workflows/build-test.yml
+
+  publish:
+    needs: [build-test]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ "3.9" ]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install 'sphinx-theme-builder[cli]'
+
+      - name: Build theme
+        run: stb package
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: >
+            These are the release notes for version ${{ github.ref_name }} of the theme.
+          draft: false
+          prerelease: false
