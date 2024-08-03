@@ -13,6 +13,7 @@ jobs:
 
   deploy:
     needs: [build-test]
+    if: github.ref_name == 'main'
     strategy:
       fail-fast: false
       matrix:
@@ -27,6 +28,5 @@ jobs:
 
     steps:
       - name: Deploy artifact to GitHub Pages
-        if: github.ref_name == 'main'
         id: deployment
         uses: actions/deploy-pages@v4
