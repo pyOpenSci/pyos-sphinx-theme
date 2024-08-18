@@ -38,7 +38,9 @@ jobs:
         run: python3 -m pip install nox
 
       - name: Build book
-        run: nox -s docs
+        run: |
+          nox -s linkcheck
+          nox -s build
 
         # Push the book's HTML to github-pages
       - name: Push to GitHub Pages
