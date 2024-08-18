@@ -1,7 +1,8 @@
+"""pyOpenSci Sphinx Theme configuration."""
 
 from pyos_sphinx_theme import __version__
 
-project = "Sphinx pyOpenSci Theme"
+project = "pyOpenSci Sphinx Theme"
 copyright = "2024"
 author = "pyOpenSci"
 master_doc = "index"
@@ -26,7 +27,7 @@ templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "pyos_sphinx_theme"
-html_title = "pyOpenSci Sphinx Theme"
+html_title = project
 html_copy_source = True
 html_sourcelink_suffix = ""
 

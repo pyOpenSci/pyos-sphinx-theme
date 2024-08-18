@@ -1,5 +1,8 @@
-from sphinx.util import logging
+"""Module to redirect html to dirhtml pages in Sphinx."""
+
 from pathlib import Path
+
+from sphinx.util import logging
 
 LOGGER = logging.getLogger(__name__)
 
@@ -18,10 +21,11 @@ REDIRECT_TEMPLATE = """
         <a href="{rel_url}">If not, click here to continue.</a>
     </body>
 </html>
-"""
+"""  # noqa: E501
+
 
 def redirect_from_html_to_dirhtml(app, pagename, templatename, context, doctree):
-    """If dirhtml builder is used, redirect pagename.html to the directory `pagename`"""
+    """If dirhtml builder is used, redirect pagename.html to the directory `pagename`."""
     if not hasattr(app, "builder"):
         return
     if app.builder.name == "dirhtml":
