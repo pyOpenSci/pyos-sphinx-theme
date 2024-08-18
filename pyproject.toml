@@ -28,9 +28,6 @@ dependencies = [
 ]
 
 license = { file = "LICENSE"}
-authors = [
-    {name = "pyos", email = "hello@2i2c.org"},
-]
 classifiers = [
   "Framework :: Sphinx",
   "Framework :: Sphinx :: Theme",
