@@ -69,6 +69,16 @@ jobs:
           path: |
             ./_build/html
 
+      - name: Deploy to gh pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build/html
+          keep_files: true
+          commit_message: "Deploy to GitHub Pages"
+          publish_branch: gh-pages
+
   build-artifact:
     runs-on: ubuntu-latest
     steps:
