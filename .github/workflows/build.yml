@@ -40,7 +40,7 @@ jobs:
       - name: Build book
         run: |
           nox -s linkcheck
-          nox -s build
+          nox -s docs-test
 
         # Push the book's HTML to github-pages
       - name: Push to GitHub Pages
@@ -68,3 +68,32 @@ jobs:
           name: book-html
           path: |
             ./_build/html
+
+  build-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+          cache: "pip"
+          cache-dependency-path: pyproject.toml
+
+      - name: Upgrade pip
+        run: |
+          python3 -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: python3 -m pip install nox
+
+      - name: Build project
+        run: nox -s build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pyos-sphinx-theme-artifact
+          path: dist/
+          retention-days: 7
