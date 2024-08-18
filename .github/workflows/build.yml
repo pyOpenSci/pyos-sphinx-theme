@@ -42,15 +42,6 @@ jobs:
           nox -s linkcheck
           nox -s docs-test
 
-        # Push the book's HTML to github-pages
-      - name: Push to GitHub Pages
-        # Only push if on main branch
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3.9.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: "./_build/html"
-
       # Test for bad links and ensure alt tags for usability
       - name: Check HTML using htmlproofer
         uses: chabad360/htmlproofer@master
@@ -70,7 +61,7 @@ jobs:
             ./_build/html
 
       - name: Deploy to gh pages
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
