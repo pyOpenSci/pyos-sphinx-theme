@@ -85,3 +85,17 @@ def docs_test(session):
     session.run(
         SPHINX_BUILD, *BUILD_PARAMETERS, *TEST_PARAMETERS, SOURCE_DIR, OUTPUT_DIR, *session.posargs
     )
+
+@nox.session(name="linkcheck")
+def linkcheck(session):
+    """Check the links in the documentation."""
+    session.install("-e", ".")
+    session.run(
+        SPHINX_BUILD,
+        *BUILD_PARAMETERS,
+        "-b",
+        "linkcheck",
+        SOURCE_DIR,
+        OUTPUT_DIR,
+        *session.posargs,
+    )
