@@ -89,7 +89,7 @@ jobs:
         run: python3 -m pip install nox
 
       - name: Build project
-        run: nox -s build
+        run: nox -s build-project
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
