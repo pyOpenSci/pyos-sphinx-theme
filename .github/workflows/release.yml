@@ -39,9 +39,3 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
 
       - name: GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          body: >
-            These are the release notes for version ${{ github.ref_name }} of the theme.
-          draft: false
-          prerelease: false
