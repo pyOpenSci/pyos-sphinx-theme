@@ -1,7 +1,7 @@
-name: deploy-book
+name: CD
 
 on:
-  pull_request:
+  pull_request: {}
   push:
     branches:
       - main
@@ -9,98 +9,22 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
-  build-test-book:
-    runs-on: ubuntu-latest
+  build-test:
+    uses: ./.github/workflows/build-test.yml
+
+  deploy:
+    needs: [build-test]
+    if: github.ref_name == 'main'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
     permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.9"
-
-      - name: Upgrade pip
-        run: |
-          # install pip=>20.1 to use "pip cache dir"
-          python3 -m pip install --upgrade pip
-      - name: Get pip cache dir
-        id: pip-cache
-        run: echo "::set-output name=dir::$(pip cache dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        run: python3 -m pip install nox
-
-      - name: Build book
-        run: |
-          nox -s linkcheck
-          nox -s docs-test
-
-      # Test for bad links and ensure alt tags for usability
-      - name: Check HTML using htmlproofer
-        uses: chabad360/htmlproofer@master
-        with:
-          directory: ./_build/html
-          arguments: |
-            --ignore-files "/.+\/_static\/.+/"
-            --ignore-status-codes "0, 200, 301, 401, 403, 503"
-            --ignore-urls "https://github.com/pyOpenSci/software-review/issues/18#issuecomment-581752433"
-
-      # Save html as artifact
-      - name: Save book html as artifact for viewing
-        uses: actions/upload-artifact@v4
-        with:
-          name: book-html
-          path: |
-            ./_build/html
-
-      - name: Deploy to gh pages
-        # if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_build/html
-          keep_files: true
-          commit_message: "Deploy to GitHub Pages"
-          publish_branch: gh-pages
-
-  # This job installs dependencies, build the project, and uploads the artifact
-  build-artifact:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.9"
-          cache: "pip"
-          cache-dependency-path: pyproject.toml
-
-      - name: Upgrade pip
-        run: |
-          python3 -m pip install --upgrade pip
-
-      - name: Install dependencies
-        run: python3 -m pip install nox
-
-      - name: Build project
-        run: nox -s build-project
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: pyos-sphinx-theme-artifact
-          path: dist/
-          retention-days: 7
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
