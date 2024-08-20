@@ -1,5 +1,4 @@
-"""
-Build and preview this theme documentation locally.
+"""Build and preview this theme documentation locally.
 
 To build with a live-server:
 
@@ -9,8 +8,9 @@ To re-install dependencies:
 
     nox -s docs -- -r
 """
-import nox
+
 import pathlib
+
 import nox
 
 nox.options.reuse_existing_virtualenvs = True
@@ -32,7 +32,7 @@ SPHINX_AUTO_BUILD = "sphinx-autobuild"
 BUILD_PARAMETERS = ["-b", "html"]
 
 # Sphinx parameters used to test the build of the guide
-TEST_PARAMETERS = ['-W', '--keep-going', '-E', '-a']
+TEST_PARAMETERS = ["-W", "--keep-going", "-E", "-a"]
 
 AUTOBUILD_IGNORE = [
     "_build",
@@ -40,6 +40,7 @@ AUTOBUILD_IGNORE = [
     "build_assets",
     "tmp",
 ]
+
 
 @nox.session
 def docs(session):
@@ -50,18 +51,19 @@ def docs(session):
 
 @nox.session(name="docs-live")
 def docs_live(session):
-    """
-    Build and launch a local copy of the guide.
+    """Build and launch a local copy of the guide.
 
     This session will use sphinx-autobuild to build the guide and launch a local server so you can
-    browse it locally. It will automatically rebuild the guide when changes are detected in the source.
+    browse it locally. It will automatically rebuild the guide when changes are
+    detected in the source.
 
     It can be used with the language parameter to build a specific translation, for example:
 
         nox -s docs-live -- -D language=es
 
-    Note: The docs-live-lang session below is provided as a convenience session for beginner contributors
-    so they don't need to remember the specific sphinx-build parameters to build a different language.
+    Note: The docs-live-lang session below is provided as a convenience session for beginner
+    contributors. so they don't need to remember the specific sphinx-build parameters to
+    build a different language.
     """
     session.install("-e", ".")
     cmd = [SPHINX_AUTO_BUILD, *BUILD_PARAMETERS, SOURCE_DIR, OUTPUT_DIR, *session.posargs]
@@ -72,12 +74,37 @@ def docs_live(session):
     #     cmd.extend(["--watch", folder])
     session.run(*cmd)
 
+
 @nox.session(name="docs-test")
 def docs_test(session):
-    """
-    Build the packaging guide with more restricted parameters.
+    """Build the packaging guide with more restricted parameters.
 
     Note: this is the session used in CI/CD to release the guide.
     """
     session.install("-e", ".")
-    session.run(SPHINX_BUILD, *BUILD_PARAMETERS, *TEST_PARAMETERS, SOURCE_DIR, OUTPUT_DIR, *session.posargs)
+    session.run(
+        SPHINX_BUILD, *BUILD_PARAMETERS, *TEST_PARAMETERS, SOURCE_DIR, OUTPUT_DIR, *session.posargs
+    )
+
+
+@nox.session(name="linkcheck")
+def linkcheck(session):
+    """Check the links in the documentation."""
+    session.install("-e", ".")
+    session.run(
+        SPHINX_BUILD,
+        *BUILD_PARAMETERS,
+        "-b",
+        "linkcheck",
+        SOURCE_DIR,
+        OUTPUT_DIR,
+        *session.posargs,
+    )
+
+
+@nox.session(name="build-project")
+def build_project(session):
+    """Build the project and create a wheel distribution for pyproject.toml file."""
+    session.install("build", "twine")
+    session.run("python", "-m", "build")
+    session.run("twine", "check", "dist/*")
