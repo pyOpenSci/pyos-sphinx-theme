@@ -104,7 +104,5 @@ def linkcheck(session):
 
 @nox.session(name="build-project")
 def build_project(session):
-    """Build the project and create a wheel distribution for pyproject.toml file."""
-    session.install("build", "twine")
-    session.run("python", "-m", "build")
-    session.run("twine", "check", "dist/*")
+    """Build the project and create the distribution files using hatch."""
+    session.run("hatch", "build", *session.posargs)

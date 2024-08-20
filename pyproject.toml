@@ -1,8 +1,6 @@
 [build-system]
-requires = [
-  "sphinx-theme-builder @ https://github.com/pradyunsg/sphinx-theme-builder/archive/87214d0671c943992c05e3db01dca997e156e8d6.zip",
-]
-build-backend = "sphinx_theme_builder"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [tool.sphinx-theme-builder]
 node-version = "16.13.2"
@@ -13,6 +11,10 @@ name = "pyos-sphinx-theme"
 description = "PyOS Documentation Theme."
 dynamic = ["version"]
 readme = "README.md"
+authors = [{ name = "Leah Wasser", email = "leah@pyopensci.org" }]
+maintainers = [
+  { name = "pyOpenSci", email = "admin@pyopensci.org" }, # Optional
+]
 
 requires-python = ">=3.9"
 dependencies = [
@@ -34,14 +36,9 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Environment :: Web Environment",
   "Intended Audience :: Developers",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3 :: Only", # BE sure to specify that you use python 3.x
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Operating System :: OS Independent",
-  "Topic :: Documentation",
-  "Topic :: Software Development :: Documentation",
 ]
 
 [project.optional-dependencies]
@@ -53,6 +50,9 @@ docs = [
   "myst-parser",
   "IPython",
 ]
+
+[tool.hatch]
+version.source = "vcs"
 
 [project.entry-points."sphinx.html_themes"]
 "pyos_sphinx_theme" = "pyos_sphinx_theme"
