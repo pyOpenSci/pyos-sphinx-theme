@@ -1,5 +1,6 @@
 """A lightweight theme for pyOpenSci."""
 
+from datetime import datetime
 from pathlib import Path
 
 from pydata_sphinx_theme.utils import config_provided_by_user
@@ -7,11 +8,15 @@ from pydata_sphinx_theme.utils import config_provided_by_user
 # from sphinx_book_theme import hash_assets_for_files
 from sphinx.util import logging
 
-__version__ = "0.0.1dev0"
+__version__ = "0.1.dev0"
+current_year = datetime.now().year
+organization_name = "pyOpenSci"
+
 LOGGER = logging.getLogger(__name__)
 
 THIS_PATH = Path(__file__).parent.resolve()
 THEME_PATH = THIS_PATH / "theme" / "pyos_sphinx_theme"
+TEMPLATE_PATH = THEME_PATH / "templates"
 LOGO_LIGHT = str((THEME_PATH / "static" / "images" / "logo-light-mode.png").absolute()).replace(
     "\\", "/"
 )
@@ -73,6 +78,8 @@ def update_config(app):
         "image": "_static/pyopensci-logo-package-guide.png",
     }
 
+    app.config.copyright = f"{current_year}, {organization_name}"
+
     # If no html_logo is set then use a stock 2i2c logo
     if not config_provided_by_user(app, "html_logo") and not social_cards.get("image"):
         line_color = "#6D597A"
@@ -112,6 +119,7 @@ def setup(app):
     app.add_html_theme("pyos_sphinx_theme", THEME_PATH)
     app.config.html_favicon = "https://www.pyopensci.org/images/favicon.ico"
     app.connect("builder-inited", update_config)
+    app.config.templates_path.append(str(TEMPLATE_PATH))
     # app.connect("html-page-context", redirect_from_html_to_dirhtml)
     # app.add_css_file("static/styles/pyos-sphinx-theme.css")
     # app.add_js_file("static/scripts/matomo.js")
