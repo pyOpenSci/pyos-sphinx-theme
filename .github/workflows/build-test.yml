@@ -74,11 +74,17 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
 
-      - name: Install dependencies
-        run: python3 -m pip install nox
+      - name: Install Hatch
+        run: |
+          pipx install hatch
+          pip list
 
-      - name: Build project
-        run: nox -s build-project
+      - name: Build package using Hatch
+        run: |
+          hatch build
+          echo ""
+          echo "Generated files:"
+          ls -lh dist/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
