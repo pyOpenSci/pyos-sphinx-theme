@@ -36,7 +36,7 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Environment :: Web Environment",
   "Intended Audience :: Developers",
-  "Programming Language :: Python :: 3 :: Only", # BE sure to specify that you use python 3.x
+  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
 ]
