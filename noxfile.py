@@ -105,4 +105,5 @@ def linkcheck(session):
 @nox.session(name="build-project")
 def build_project(session):
     """Build the project and create the distribution files using hatch."""
+    session.install("hatch")
     session.run("hatch", "build", *session.posargs)
