@@ -121,7 +121,7 @@ def setup(app):
     app.connect("builder-inited", update_config)
     app.config.templates_path.append(str(TEMPLATE_PATH))
     # app.connect("html-page-context", redirect_from_html_to_dirhtml)
-    app.add_css_file("static/styles/pyos-sphinx-theme.css")
+    # app.add_css_file("static/styles/pyos-sphinx-theme.css")
     # app.add_js_file("static/scripts/matomo.js")
     app.add_css_file(
         "https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@400;700&family=Work+Sans:wght@400;700"
