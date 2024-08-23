@@ -80,7 +80,7 @@ def update_config(app):
 
     app.config.copyright = f"{current_year}, {organization_name}"
 
-    # If no html_logo is set then use a stock 2i2c logo
+    # If no html_logo is set then use a stock pyOpenSci logo
     if not config_provided_by_user(app, "html_logo") and not social_cards.get("image"):
         line_color = "#6D597A"
         social_cards["image"] = str(LOGO_LIGHT)
