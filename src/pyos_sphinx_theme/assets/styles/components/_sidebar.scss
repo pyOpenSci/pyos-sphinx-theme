@@ -1,0 +1,9 @@
+/*
+Don't fill all vertical space beneath TOC, which causes
+readthedocs version selector to fall off the page and the
+ugly scrollbar to show all the time
+*/
+.bd-sidebar-primary .sidebar-primary-items__end {
+  margin-bottom: unset;
+  margin-top: unset;
+}
