@@ -1,0 +1,54 @@
+.lesson-div {
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: #333;
+}
+
+.lesson-div a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.lesson-div:hover {
+  background-color: #ccc;
+}
+
+/* Different colors and their shades */
+.lesson-div:nth-child(1) {
+  background-color: #216a6b;
+  color: #fff;
+}
+
+.lesson-div:nth-child(2) {
+  background-color: #6d597a;
+  color: #fff;
+}
+
+.lesson-div:nth-child(3) {
+  background-color: #b56576;
+  color: #fff;
+}
+
+.lesson-div:nth-child(4) {
+  background-color: #3a8c8e; /* Shade of #216A6B */
+}
+
+.lesson-div:nth-child(5) {
+  background-color: #8f7b8d; /* Shade of #6D597A */
+}
+
+.lesson-div:nth-child(6) {
+  background-color: #d78287; /* Shade of #B56576 */
+}
+
+.lesson-div:nth-child(7) {
+  background-color: #185355; /* Darker shade of #216A6B */
+  color: #fff;
+}

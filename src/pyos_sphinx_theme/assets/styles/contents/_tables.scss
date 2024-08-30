@@ -1,0 +1,32 @@
+.pyos-table {
+  & th.head,
+  .pyos-table th.head.stub {
+    background-color: #33205c !important;
+
+    & p {
+      color: #fff;
+    }
+  }
+  & th.stub {
+    background-color: var(--pst-color-tbl-row);
+    font-weight: 500;
+  }
+  & td {
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+td,
+th {
+  border: 1px solid #ccc; /* Light gray border */
+  padding: 8px; /* Add some padding for better readability */
+}
+
+@media (prefers-color-scheme: dark) {
+  td:not(.row-header):nth-child(1) {
+    background-color: var(--pst-color-tbl-row); /* Adjust the dark mode color */
+    color: #ffffff; /* Adjust the text color for better contrast */
+    font-weight: 500;
+  }
+}
