@@ -1,0 +1,9 @@
+/* Allow the center content to expand to wide on wide screens */
+@media (min-width: $breakpoint-md-lg) {
+  .bd-page-width {
+    max-width: min(100%, $breakpoint-xxxl) !important;
+  }
+  .col-lg-3 {
+    width: fit-content;
+  }
+}

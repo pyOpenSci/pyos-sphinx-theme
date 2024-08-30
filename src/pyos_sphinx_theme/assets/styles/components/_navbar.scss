@@ -1,0 +1,13 @@
+/* Make sure the header nav is centered  - not sure why it's not overriding*/
+.navbar-header-items .me-auto,
+.me-auto .navbar-header-items__center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.bd-header .navbar-nav li a.nav-link:hover {
+  text-decoration: none;
+  text-decoration-thickness: none;
+  border-bottom: max(3px, 0.1875rem, 0.12em) solid var(--pst-color-link-hover);
+  text-underline-offset: none;
+}
