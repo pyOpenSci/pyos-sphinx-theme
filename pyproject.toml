@@ -18,7 +18,7 @@ maintainers = [
 
 requires-python = ">=3.9"
 dependencies = [
-  "pydata-sphinx-theme==0.15.4",
+  "pydata-sphinx-theme==0.16.0",
   "sphinx",
   "myst_nb",
   "sphinxext-opengraph",
