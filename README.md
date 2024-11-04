@@ -23,6 +23,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/steven-silvester-90318721/"><img src="https://avatars.githubusercontent.com/u/2096628?v=4?s=100" width="100px;" alt="Steven Silvester"/><br /><sub><b>Steven Silvester</b></sub></a><br /><a href="https://github.com/pyOpenSci/pyos-sphinx-theme/commits?author=blink1073" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://flpm.dev"><img src="https://avatars.githubusercontent.com/u/17676929?v=4?s=100" width="100px;" alt="Felipe Moreno"/><br /><sub><b>Felipe Moreno</b></sub></a><br /><a href="#ideas-flpm" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tkoyama010"><img src="https://avatars.githubusercontent.com/u/7513610?v=4?s=100" width="100px;" alt="Tetsuo Koyama"/><br /><sub><b>Tetsuo Koyama</b></sub></a><br /><a href="https://github.com/pyOpenSci/pyos-sphinx-theme/pulls?q=is%3Apr+reviewed-by%3Atkoyama010" title="Reviewed Pull Requests">👀</a></td>
+    </tr>
   </tbody>
 </table>
 
