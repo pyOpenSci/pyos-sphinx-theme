@@ -9,14 +9,44 @@ This will download a local copy of NodeJS and build the theme's assets with the 
 
 This theme follows the [`sphinx-theme-builder` filesystem layout](https://sphinx-theme-builder.readthedocs.io/en/latest/filesystem-layout/).
 
-## clone the repository
+## Create a new development environment
 
-To develop this theme, clone the repository and install the dependencies:
+### Using Conda or Mamba
+
+1. If you are a conda or mamba user, create a new environment  
+
+Note: Mamba is a faster alternative to `conda`.
+
+```bash
+mamba create -n pyos_sphinx python=3.10
+mamba activate pyos_sphinx
+```
+
+### 1.Create a venv Environment with Python 3.10
+
+Alternatively you could create a venv environment.
+To create a virtual environment named my_env, run:
+
+```bash
+python3.10 -m venv my_env
+# Activate on mac / linux
+source my_env/bin/activate
+```
+
+### 2. Clone the repository
+
+To develop this theme locally, clone the repository and install the
+dependencies:
 
 ```bash
 git clone https://github.com/pyOpenSci/pyos-sphinx-theme.git
 cd pyos-sphinx-theme
-pip install -e .[dev]
+```
+
+### Install the theme in editable mode with development dependencies
+
+```
+pip install -e ".[dev]"
 ```
 
 ## Build the theme locally
@@ -27,21 +57,38 @@ This ensures that your environment has all the dependencies needed to build the 
 
 To do so, follow these steps:
 
-1. Install `nox`
+1. Install `nox` using either pip or pipx.
 
-   ```console
-   $ pip install nox
-   ```
+```console
+pip install nox
+```
+
+or
+
+```console
+pipx install nox
+```
+
 2. Build the documentation:
 
-   ```console
-   $ nox -s docs
-   ```
+```console
+nox -s docs
+```
 
 This should create a local environment in a `.nox` folder, build the documentation (as specified in the `noxfile.py` configuration), and the output will be in `docs/_build/html`.
 
 To build live documentation that updates when you update local files, run the following command:
 
 ```console
-$ nox -s docs -- live
+nox -s docs-live
 ```
+
+## Publish and release workflow
+
+To build the theme's distribution files run:
+
+```bash
+hatch build
+```
+
+Hatch will store the build distribution files in the `dist/` directory of the cloned repo.
