@@ -92,3 +92,13 @@ hatch build
 ```
 
 Hatch will store the build distribution files in the `dist/` directory of the cloned repo.
+
+## Making a release
+
+Currently we are using a manual versioning process where you need to
+update the version of the package in our `__init__.py` file. Please
+be sure to do this before cutting a new release on GitHub.
+
+Once you have updated the version of the package, you are ready to make a release on GitHub.
+
+A new tagged release will push the newly built theme to PyPI.

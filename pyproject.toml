@@ -1,9 +1,9 @@
 [build-system]
-requires = ["hatchling", "hatch-vcs", "sphinx-theme-builder @ https://github.com/pradyunsg/sphinx-theme-builder/archive/87214d0671c943992c05e3db01dca997e156e8d6.zip",]
+requires = ["sphinx-theme-builder @ https://github.com/pradyunsg/sphinx-theme-builder/archive/87214d0671c943992c05e3db01dca997e156e8d6.zip",]
 build-backend = "sphinx_theme_builder"
 
 [tool.sphinx-theme-builder]
-node-version = "16.13.2"
+node-version = "22.9.0"
 theme-name = "pyos_sphinx_theme"
 
 [project]
@@ -11,9 +11,9 @@ name = "pyos-sphinx-theme"
 description = "PyOS Documentation Theme."
 dynamic = ["version"]
 readme = "README.md"
-authors = [{ name = "Leah Wasser", email = "leah@pyopensci.org" }]
+authors = [{ name = "pyOpenSci Community", email = "pyopensci@pyopensci.org" }]
 maintainers = [
-  { name = "pyOpenSci", email = "admin@pyopensci.org" }, # Optional
+  { name = "pyOpenSci", email = "pyopensci@pyopensci.org" },
 ]
 
 requires-python = ">=3.9"
