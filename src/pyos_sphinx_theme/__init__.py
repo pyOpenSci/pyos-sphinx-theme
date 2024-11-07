@@ -8,7 +8,7 @@ from pydata_sphinx_theme.utils import config_provided_by_user
 # from sphinx_book_theme import hash_assets_for_files
 from sphinx.util import logging
 
-__version__ = "0.2.dev0"
+__version__ = "0.3"
 current_year = datetime.now().year
 organization_name = "pyOpenSci"
 
