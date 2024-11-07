@@ -8,7 +8,7 @@ from pydata_sphinx_theme.utils import config_provided_by_user
 # from sphinx_book_theme import hash_assets_for_files
 from sphinx.util import logging
 
-__version__ = "0.1.dev0"
+__version__ = "0.2.dev0"
 current_year = datetime.now().year
 organization_name = "pyOpenSci"
 
@@ -17,18 +17,22 @@ LOGGER = logging.getLogger(__name__)
 THIS_PATH = Path(__file__).parent.resolve()
 THEME_PATH = THIS_PATH / "theme" / "pyos_sphinx_theme"
 TEMPLATE_PATH = THEME_PATH / "templates"
-LOGO_LIGHT = str((THEME_PATH / "static" / "images" / "logo-light-mode.png").absolute()).replace(
-    "\\", "/"
-)
-LOGO_DARK = str((THEME_PATH / "static" / "images" / "logo-dark-mode.png").absolute()).replace(
-    "\\", "/"
-)
+LOGO_LIGHT = str(
+    (THEME_PATH / "static" / "images" / "logo-light-mode.png").absolute()
+).replace("\\", "/")
+LOGO_DARK = str(
+    (THEME_PATH / "static" / "images" / "logo-dark-mode.png").absolute()
+).replace("\\", "/")
 
 PYOPENSCI_LOGO_PACKAGE_GUIDE = str(
-    (THEME_PATH / "static" / "images" / "pyopensci-logo-package-guide.png").absolute()
+    (
+        THEME_PATH / "static" / "images" / "pyopensci-logo-package-guide.png"
+    ).absolute()
 ).replace("\\", "/")
 PYOPENSCI_PYTHON_PACKAGE_GUIDE = str(
-    (THEME_PATH / "static" / "images" / "pyopensci-python-package-guide.png").absolute()
+    (
+        THEME_PATH / "static" / "images" / "pyopensci-python-package-guide.png"
+    ).absolute()
 ).replace("\\", "/")
 
 
@@ -64,7 +68,10 @@ def update_config(app):
         ]
 
     if "logo" not in theme_options:
-        theme_options["logo"] = {"image_dark": LOGO_DARK, "image_light": LOGO_LIGHT}
+        theme_options["logo"] = {
+            "image_dark": LOGO_DARK,
+            "image_light": LOGO_LIGHT,
+        }
 
     if "header_links_before_dropdown" not in theme_options:
         theme_options["header_links_before_dropdown"] = 4
@@ -81,7 +88,9 @@ def update_config(app):
     app.config.copyright = f"{current_year}, {organization_name}"
 
     # If no html_logo is set then use a stock pyOpenSci logo
-    if not config_provided_by_user(app, "html_logo") and not social_cards.get("image"):
+    if not config_provided_by_user(app, "html_logo") and not social_cards.get(
+        "image"
+    ):
         line_color = "#6D597A"
         social_cards["image"] = str(LOGO_LIGHT)
         social_cards["line_color"] = line_color
