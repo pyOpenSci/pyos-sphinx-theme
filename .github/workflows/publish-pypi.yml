@@ -43,7 +43,7 @@ jobs:
           ls -lh dist/
       # Store an artifact of the build to use in the publish step below
       - name: Store the distribution packages
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: python-package-distributions
           path: dist/
@@ -62,7 +62,7 @@ jobs:
     steps:
       # Version 4 doesn't support github enterprise yet
       - name: Download all the dists
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: python-package-distributions
           path: dist/
@@ -84,7 +84,7 @@ jobs:
       id-token: write  # this permission is mandatory for sigstore
     steps:
     - name: Download all the dists
-      uses: actions/download-artifact@v6
+      uses: actions/download-artifact@v7
       with:
         name: python-package-distributions
         path: dist/
