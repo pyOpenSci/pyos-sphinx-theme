@@ -1,17 +1,13 @@
 # The pyOpenSci documentation theme
 
-A lightweight theme built on the pydata sphinx theme for use with the [pyOpenSci](https://pyopensci.org) project.
-It makes minimal changes to the `pydata sphinx theme` in order to standardize a top-bar that can be shared across all pyOpenSci projects.
-
-It does these two primary things:
-
-- Adds some CSS that standardizes the look and feel according to the pyOpenSci brand.
-
-Other than this, the theme behaves the exact same as the [pydata sphinx theme](https://pydata-sphinx-theme.readthedocs.io).
+A lightweight theme built on the [PyData Sphinx Theme](https://github.com/pydata/pydata-sphinx-theme)
+that uses custom CSS to provide a consistent visual identity and navigation experience across
+pyOpenSci.org. Beyond these minimal customizations, it retains the functionality and behavior of the
+upstream PyData Sphinx Theme.
 
 ## User guide
 
-These have sections about using this theme
+Learn how to use and develop the theme, and explore examples of it in action.
 
 ```{toctree}
 :hidden:
