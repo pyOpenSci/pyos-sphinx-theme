@@ -16,7 +16,10 @@ version = __version__
 extensions = [
     "myst_parser",
     "sphinx_design",
+    "sphinxext.opengraph",
 ]
+
+ogp_site_url = "https://pyopensci.github.io/pyos-sphinx-theme/"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

@@ -77,15 +77,13 @@ def update_config(app):
         theme_options["header_links_before_dropdown"] = 4
 
     # Social previews config
-    social_cards = app.config.__dict__.get("ogp_social_cards", {})
+    social_cards = getattr(app.config, "ogp_social_cards", None) or {}
 
-    app.config.ogp_site_name = "pyOpenSci Python Package Guide"
-    app.config.ogp_social_cards = {
-        "line_color": "#6D597A",
-        "image": "_static/pyopensci-logo-package-guide.png",
-    }
+    if not config_provided_by_user(app, "ogp_site_name"):
+        app.config.ogp_site_name = app.config.project or organization_name
 
-    app.config.copyright = f"{current_year}, {organization_name}"
+    if not config_provided_by_user(app, "copyright"):
+        app.config.copyright = f"{current_year}, {organization_name}"
 
     # If no html_logo is set then use a stock pyOpenSci logo
     if not config_provided_by_user(app, "html_logo") and not social_cards.get(
