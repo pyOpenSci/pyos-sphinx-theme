@@ -25,6 +25,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tkoyama010"><img src="https://avatars.githubusercontent.com/u/7513610?v=4?s=100" width="100px;" alt="Tetsuo Koyama"/><br /><sub><b>Tetsuo Koyama</b></sub></a><br /><a href="https://github.com/pyOpenSci/pyos-sphinx-theme/pulls?q=is%3Apr+reviewed-by%3Atkoyama010" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/InessaPawson"><img src="https://avatars.githubusercontent.com/u/43481325?v=4?s=100" width="100px;" alt="Inessa Pawson"/><br /><sub><b>Inessa Pawson</b></sub></a><br /><a href="https://github.com/pyOpenSci/pyos-sphinx-theme/commits?author=InessaPawson" title="Code">💻</a> <a href="https://github.com/pyOpenSci/pyos-sphinx-theme/issues?q=author%3AInessaPawson" title="Bug reports">🐛</a> <a href="https://github.com/pyOpenSci/pyos-sphinx-theme/commits?author=InessaPawson" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
