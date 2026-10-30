@@ -23,3 +23,8 @@ repos:
     # case-insensitive filesystem like MacOS HFS+ or Windows FAT.
     - id: check-case-conflict
     - id: trailing-whitespace
+
+- repo: https://github.com/zizmorcore/zizmor-pre-commit
+  rev: v1.26.1
+  hooks:
+    - id: zizmor
